@@ -50,6 +50,7 @@ public class InvoiceController {
 
         urlResponse.setExpirationTime(expirationTime.getEpochSecond());
         urlResponse.setUrl(amazonS3.generatePresignedUrl(generatePresignedUrlRequest).toString());
+        urlResponse.setProcessId(processId);
 
         return new ResponseEntity<UrlResponse>(urlResponse, HttpStatus.OK);
     }
